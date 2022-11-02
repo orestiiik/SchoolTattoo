@@ -56,12 +56,12 @@ const AdminPage = () => {
             >
                 YOUR APPOINTMENTS
             </Typography>
-            <Grid container py={3}>
+            <Grid container pb={3}>
                 {bookings.map(booking => {
                         const time = booking.data.time.toString().split("")
 
                         return (
-                            <Grid key={booking.data.date} item xs={12} md={4} boxShadow={5} borderRadius={8} p={3}>
+                            <Grid key={booking.data.date} item xs={12} md={4} boxShadow={5} borderRadius={8} p={3} m={1}>
                                 <Typography pb={1}>
                                     {dayjs(booking.data.date).format('DD.MM.YYYY')}
                                     <b>|</b> {time.length === 4 ? time[0] + time[1] + ':' + time[2] + time[3] : time[0] + ':' + time[2] + time[3]}

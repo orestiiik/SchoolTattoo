@@ -14,7 +14,8 @@ const HomePage = () => {
             <Container maxWidth={'xl'}>
                 <Grid container py={6}>
                     <Grid xs={12} md={6} height={'100%'}>
-                        <Typography fontSize={{xs: 32, md: 68}} pt={2} fontWeight={500} fontFamily={theme.secondaryFont}>
+                        <Typography fontSize={{xs: 32, md: 68}} pt={2} fontWeight={500}
+                                    fontFamily={theme.secondaryFont}>
                             Appointments made&nbsp;
                             <span className={'secondaryFont'}
                                   style={{color: theme.secondaryColor}}>
@@ -73,10 +74,10 @@ const HomePage = () => {
                                 }
                             }}>
                                 <Typography variant={'h4'} fontFamily={theme.secondaryFont}
-                                sx={{
-                                    borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: .3,
-                                    width: 'fit-content'
-                                }}>
+                                            sx={{
+                                                borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: .3,
+                                                width: 'fit-content'
+                                            }}>
                                     SHOW ALL
                                 </Typography>
                             </Box>
@@ -112,8 +113,27 @@ const HomePage = () => {
                                 OWNER?
                             </Typography>
                             <Typography fontSize={{xs: 20, md: 32}} pt={2} fontWeight={500}>
-                                Do you own a tattoo studio? Contact us and we can ad you to our <b>TattooSes</b>
+                                Do you own a tattoo studio? Contact us and we can add you to
+                                our <b>TattooSes</b><br/><br/>
                             </Typography>
+                            <Link to={'/contact'}
+                                  style={{textDecoration: 'none', width: 'fitContent', color: 'inherit'}}>
+                                <Box sx={{
+                                    background: theme.secondaryColor,
+                                    color: theme.primaryColor,
+                                    width: 'fit-content',
+                                    px: 3,
+                                    py: 1.9,
+                                    mt: .4,
+                                    fontSize: 18,
+                                    borderRadius: 8,
+                                    textTransform: 'uppercase',
+                                    fontWeight: 600,
+                                }}>
+                                    LET'S DO
+                                    IT!
+                                </Box>
+                            </Link>
                         </Grid>
                     </Grid>
                 </Container>
