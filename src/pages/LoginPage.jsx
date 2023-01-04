@@ -22,60 +22,62 @@ const LoginPage = () => {
         <>
             {!user ?
                 <Container maxWidth={'xl'}>
-                    <Grid container>
-                        <Box m={3} boxShadow={3} sx={{
-                            p: 3,
-                            borderRadius: 8,
-                            background: 'rgba(255, 255, 255, 0.60)',
-                            backdropFilter: 'blur(8.9px)',
-                        }}>
-                            <Typography pt={2} variant={'h4'} color={theme.secondaryColor}
-                                        fontFamily={theme.secondaryFont}>
-                                Login
-                            </Typography>
-                            <form onSubmit={handleSubmit} method="POST">
-                                <Grid container spacing={3} pb={2}>
-                                    <Grid item xs={12}>
-                                        <Typography variant={'subtitle1'}>
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextInput name={'Name'} id={'name'}/>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextInput name={'Password'} id={'password'}/>
-                                    </Grid>
+                    <Box pt={5}/>
+                    <Box boxShadow={3} sx={{
+                        p: 3,
+                        borderRadius: 8,
+                        background: 'rgba(255, 255, 255, 0.60)',
+                        backdropFilter: 'blur(8.9px)',
+                        width: 'fit-content',
+                        mx: 'auto',
+                    }}>
+                        <Typography pt={2} variant={'h4'} color={theme.secondaryColor}
+                                    fontFamily={theme.secondaryFont}>
+                            Login
+                        </Typography>
+                        <form onSubmit={handleSubmit} method="POST">
+                            <Grid container spacing={3} pb={2}>
+                                <Grid item xs={12}>
+                                    <Typography variant={'subtitle1'}>
+                                    </Typography>
                                 </Grid>
-                                {loading ?
-                                    <CircularProgress sx={{color: theme.secondaryColor}}/>
-                                    :
-                                    <button
-                                        type="submit"
-                                        style={{
-                                            padding: 0,
-                                            background: 'none',
-                                            borderColor: 'transparent'
-                                        }}
-                                    >
+                                <Grid item xs={12}>
+                                    <TextInput name={'Name'} id={'name'}/>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextInput name={'Password'} type={'password'} id={'password'}/>
+                                </Grid>
+                            </Grid>
+                            {loading ?
+                                <CircularProgress sx={{color: theme.secondaryColor}}/>
+                                :
+                                <button
+                                    type="submit"
+                                    style={{
+                                        padding: 0,
+                                        background: 'none',
+                                        borderColor: 'transparent',
+                                        cursor: 'pointer'
+                                    }}
+                                >
 
-                                        <Box sx={{
-                                            backgroundColor: theme.secondaryColor,
-                                            fontWeight: 500,
-                                            fontSize: 16,
-                                            px: 3,
-                                            borderRadius: 4,
-                                            py: 1,
-                                            color: theme.primaryColor,
-                                            textTransform: 'uppercase'
-                                        }}
-                                        >
-                                            Login
-                                        </Box>
-                                    </button>
-                                }
-                            </form>
-                        </Box>
-                    </Grid>
+                                    <Box sx={{
+                                        backgroundColor: theme.secondaryColor,
+                                        fontWeight: 500,
+                                        fontSize: 16,
+                                        px: 3,
+                                        borderRadius: 4,
+                                        py: 1,
+                                        color: theme.primaryColor,
+                                        textTransform: 'uppercase'
+                                    }}
+                                    >
+                                        Login
+                                    </Box>
+                                </button>
+                            }
+                        </form>
+                    </Box>
                 </Container>
                 :
                 <AdminPage/>

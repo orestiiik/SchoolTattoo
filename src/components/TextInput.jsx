@@ -2,7 +2,7 @@ import ThemeContext from "../context/ThemeContext";
 import {TextField} from "@mui/material";
 import {useContext} from "react";
 
-const TextInput = ({name, id}) => {
+const TextInput = ({name, id, type}) => {
     const theme = useContext(ThemeContext)
     return (
         <TextField
@@ -16,6 +16,7 @@ const TextInput = ({name, id}) => {
                     }
                 }
             }}
+            type={type}
             fullWidth
             id={id}
             name={id}

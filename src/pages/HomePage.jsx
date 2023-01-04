@@ -63,11 +63,12 @@ const HomePage = () => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 borderRadius: 8,
+                                border: `3px ${theme.secondaryColor} solid`,
                                 background: 'rgba(255, 255, 255, 0.60)',
                                 backdropFilter: 'blur(8.9px)',
                                 minHeight: '100%',
                                 '&:hover': {
-                                    '& img': {
+                                    '& h4': {
                                         transform: 'scale(1.2)',
                                         transition: 'transform .3s'
                                     }
@@ -76,7 +77,8 @@ const HomePage = () => {
                                 <Typography variant={'h4'} fontFamily={theme.secondaryFont}
                                             sx={{
                                                 borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: .3,
-                                                width: 'fit-content'
+                                                width: 'fit-content',
+                                                transition: 'transform .3s'
                                             }}>
                                     SHOW ALL
                                 </Typography>

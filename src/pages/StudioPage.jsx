@@ -87,22 +87,23 @@ const StudioPage = () => {
                                             </Typography>
                                         </Grid>
                                     </Hidden>
-                                    <Grid item xs={12} md={6}>
-                                        <TextInput name={'Name'} id={'name'}/>
-                                    </Grid>
-                                    <Grid item xs={12} md={6}>
-                                        <TextInput name={'Email'} id={'email'}/>
-                                    </Grid>
-                                    <Grid item xs={12} md={6}>
-                                        <TextInput name={'Phone number'} id={'phoneNumber'}/>
-                                    </Grid>
-                                    <Hidden mdDown>
-                                        <Grid item xs={6}/>
+                                    <Hidden mdUp>
+                                        <Grid item xs={12} md={6} maxHeight={425} overflow={'hidden'}>
+                                            <img src={studio.data.image}
+                                                 style={{
+                                                     transition: 'transform .4s',
+                                                     borderRadius: 15,
+                                                     width: '100%',
+                                                     maxHeight: '100%',
+                                                     objectFit: "cover"
+                                                 }}/>
+                                        </Grid>
                                     </Hidden>
-                                    <Grid item xs={12}>
+                                    <Grid item xs={12} md={6} display={'flex'} flexDirection={'column'} gap={3}>
+                                        <TextInput name={'Name'} id={'name'}/>
+                                        <TextInput name={'Email'} id={'email'}/>
+                                        <TextInput name={'Phone number'} id={'phoneNumber'}/>
                                         <Divider variant={'fullWidth'}/>
-                                    </Grid>
-                                    <Grid item xs={12} md={6}>
                                         <TextField
                                             id="date"
                                             name="date"
@@ -123,10 +124,20 @@ const StudioPage = () => {
                                                 shrink: true,
                                             }}
                                         />
-                                    </Grid>
-                                    <Grid item xs={12} md={6}>
                                         <TimePicker time={time} setTime={setTime} bookings={bookings}/>
                                     </Grid>
+                                    <Hidden mdDown>
+                                        <Grid item xs={12} md={6} maxHeight={425} overflow={'hidden'}>
+                                            <img src={studio.data.image}
+                                                 style={{
+                                                     transition: 'transform .4s',
+                                                     borderRadius: 15,
+                                                     width: '100%',
+                                                     maxHeight: '100%',
+                                                     objectFit: "cover"
+                                                 }}/>
+                                        </Grid>
+                                    </Hidden>
                                     <Grid item xs={12}>
                                         <Divider variant={'fullWidth'}/>
                                     </Grid>

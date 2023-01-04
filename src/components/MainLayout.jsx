@@ -13,76 +13,95 @@ const MainLayout = ({children}) => {
 
     return (
         <>
-            <Box sx={{borderBottom: `2px ${theme.secondaryColor} solid`}} boxShadow={3}>
+            <Box boxShadow={3}>
                 <Container maxWidth={'xl'}>
                     <Box className={'burgerMenu'}>
-                        <input type="checkbox" id="main-navigation-toggle" checked={checkbox}
-                               onClick={() => setCheckbox(!checkbox)} className="btn btn--close"
-                               title="Toggle main navigation"/>
-                        <label htmlFor="main-navigation-toggle">
-                            <span></span>
-                        </label>
-                        <nav id="main-navigation" className="nav-main" onClick={() => setCheckbox(false)}>
-                            <ul className="menu">
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Home
-                                        </Link>
-                                    </a>
-                                </li>
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/studios'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Studios
-                                        </Link>
-                                    </a>
-                                </li>
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/contact'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Contact
-                                        </Link>
-                                    </a>
+                        <div className="menu-wrap">
+                            <input type="checkbox" className="toggler" checked={checkbox}
+                                   onClick={() => setCheckbox(!checkbox)}/>
+                            <div className="hamburger">
+                                <div></div>
+                            </div>
+                            <div className="menu">
+                                <div>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <a className="menu__link" href="">
+                                                    <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}} onClick={() => setCheckbox(!checkbox)}>
+                                                        Home
+                                                    </Link>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="menu__link" href="">
+                                                    <Link to={'/studios'}
+                                                          style={{textDecoration: 'none', color: 'inherit'}} onClick={() => setCheckbox(!checkbox)}>
+                                                        Studios
+                                                    </Link>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="menu__link" href="">
+                                                    <Link to={'/contact'}
+                                                          style={{textDecoration: 'none', color: 'inherit'}} onClick={() => setCheckbox(!checkbox)}>
+                                                        Contact
+                                                    </Link>
+                                                </a>
+                                            </li>
+                                            <Divider color={'white'}/>
+                                            <li>
+                                                <a className="menu__link" href="">
+                                                    <Link to={'/admin'}
+                                                          style={{textDecoration: 'none', color: 'inherit'}} onClick={() => setCheckbox(!checkbox)}>
+                                                        Admin
+                                                    </Link>
+                                                </a>
+                                            </li>
+                                            {user &&
+                                                <li onClick={() => {
+                                                    logout()
+                                                    setCheckbox(!checkbox)
+                                                }}>
 
-                                </li>
-                                <Divider color={theme.primaryColor} sx={{my: 4}}/>
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/admin'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Admin
-                                        </Link>
-                                    </a>
-
-                                </li>
-                                {user &&
-                                    <li className="menu__item" onClick={() => logout()}>
-                                        <a className="menu__link" href="">
-                                            Logout
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </nav>
+                                                    <a className="menu__link" href="">
+                                                        Logout
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </Box>
-                    <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}}>
+                    <Box display={'flex'} justifyContent={'space-between'} poisiton={'relative'}>
+                        <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}}>
 
-                        <Box display={'flex'} alignItems={'center'}>
-                            <Box height={50} width={50} py={2}>
-                                <img alt={'Logo'} src={'/images/logo.png'} height={'100%'} width={'100%'}
-                                     style={{objectFit: 'contain'}}/>
+                            <Box display={'flex'} alignItems={'center'}>
+                                <Box height={50} width={50} py={2}>
+                                    <img alt={'Logo'} src={'/images/logo.png'} height={'100%'} width={'100%'}
+                                         style={{objectFit: 'contain'}}/>
+                                </Box>
+                                <Typography fontWeight={200} fontSize={26} ml={2} mt={1}
+                                            fontFamily={theme.secondaryFont}
+                                            sx={{
+                                                borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: 0,
+                                                width: 'fit-content'
+                                            }}
+                                >
+                                    TattooSes
+                                </Typography>
                             </Box>
-                            <Typography fontWeight={200} fontSize={26} ml={2} mt={1} fontFamily={theme.secondaryFont}
-                                        sx={{
-                                            borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: 0,
-                                            width: 'fit-content'
-                                        }}
-                            >
-                                TattooSes
-                            </Typography>
+                        </Link>
+                        <Box className={'burgerMenuToggler'}>
+                            <input type="checkbox" className="toggler" checked={checkbox}
+                                   onClick={() => setCheckbox(!checkbox)}/>
+                            <div className="hamburger">
+                                <div></div>
+                            </div>
                         </Box>
-                    </Link>
-
+                    </Box>
                 </Container>
             </Box>
             <Box sx={{
